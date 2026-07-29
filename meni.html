@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meni — Happiness Caffe Bar</title>
+<meta name="description" content="Ceo meni sa cenama: pice, burgeri, sendviči, palačinke, doručak i tortilje. Porudžbine: 061 730 0202.">
+<meta property="og:title" content="Meni — Happiness Caffe Bar">
+<meta property="og:description" content="Ceo meni sa cenama: pice, burgeri, sendviči, palačinke, doručak i tortilje. Porudžbine: 061 730 0202.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:,">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; -webkit-font-smoothing: antialiased; background: #EEE9E0; }
+  a { color: #223D2C; text-decoration: none; }
+  a:hover { color: #2E5139; }
+  @keyframes hpFade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+
+<div style="font-family: 'Jost', sans-serif; color: #26241F; background: #EEE9E0; overflow-x: hidden; min-height: 100vh;">
+
+  <nav style="position: sticky; top: 0; z-index: 50; padding: 0 clamp(16px, 3vw, 32px); background: rgba(238,233,224,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(38,36,31,0.10);">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; height: 62px;">
+      <a href="index.html" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.3px; color: #26241F; justify-self: start;">Happiness<span style="color: #B4402F;">.</span></a>
+      <div style="display: flex; align-items: center; gap: clamp(10px, 1.4vw, 20px); font-size: 11.5px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 500; justify-self: center;">
+        <a href="index.html" style="color: #4A453D; padding: 6px 2px;" style-hover="color: #B4402F;">← Početna</a>
+        <span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(38,36,31,0.28);"></span>
+        <a href="index.html#o-nama" style="color: #4A453D; padding: 6px 2px;" style-hover="color: #B4402F;">O nama</a>
+        <span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(38,36,31,0.28);"></span>
+        <a href="index.html#galerija" style="color: #4A453D; padding: 6px 2px;" style-hover="color: #B4402F;">Galerija</a>
+        <span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(38,36,31,0.28);"></span>
+        <a href="index.html#kontakt" style="color: #4A453D; padding: 6px 2px;" style-hover="color: #B4402F;">Kontakt</a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; justify-self: end;">
+        <span style="font-size: 11px; letter-spacing: 1px; color: #857E72; text-transform: uppercase; white-space: nowrap;">07:30 — 00:00</span>
+        <a href="tel:+381617300202" style="display: inline-flex; align-items: center; gap: 6px; background: #223D2C; color: #F3EFE7; padding: 7px 14px; border-radius: 6px; font-size: 11.5px; letter-spacing: 1.1px; font-weight: 600; white-space: nowrap;" style-hover="background: #2E5139;">☎ 061 730 0202</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER BAND -->
+  <header style="position: relative; overflow: hidden; padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 40px); text-align: center;">
+    <div style="position: absolute; inset: 0; background-image: url('img/close-up-large-tube-pasta-with-chicken-cherry-tomato-with-chopped-parsley.jpg'); background-size: cover; background-position: center;"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,18,14,0.74), rgba(20,18,14,0.84));"></div>
+    <div style="position: relative; z-index: 2; animation: hpFade 0.7s ease both;">
+      <p style="font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #F0C9A8; margin: 0 0 14px; font-weight: 500;">Happiness bistro</p>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(46px, 8vw, 92px); font-weight: 600; margin: 0; color: #FBF8F2; letter-spacing: -0.5px; line-height: 1;">Naš meni</h1>
+      <p style="font-size: 15px; color: rgba(251,248,242,0.82); margin: 18px auto 0; font-weight: 300; max-width: 520px; line-height: 1.6;">Sve cene su u dinarima (RSD). Za porudžbinu jednostavno pozovite <a href="tel:+381617300202" style="color: #F0C9A8; font-weight: 500;">061 730 0202</a>.</p>
+    </div>
+  </header>
+
+  <!-- STICKY TABS -->
+  <div style="position: sticky; top: 62px; z-index: 40; background: rgba(238,233,224,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(38,36,31,0.10); padding: 14px clamp(16px, 5vw, 40px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
+        <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: clamp(36px, 5vw, 56px) clamp(20px, 5vw, 40px) clamp(56px, 8vw, 90px);">
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 600; text-align: center; margin: 0 0 8px; letter-spacing: -0.5px;">{{ activeLabel }}</h2>
+    <p style="text-align: center; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B4402F; margin: 0 0 40px;">{{ activeHint }}</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 26px;">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="9">
+        <div style="{{ c.cardStyle }}">
+          <div style="{{ c.imgStyle }}"></div>
+          <div style="padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+              <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; margin: 0; color: #26241F; line-height: 1.15;">{{ c.name }}</h3>
+              <sc-if value="{{ c.single }}" hint-placeholder-val="{{ true }}">
+                <span style="font-size: 18px; font-weight: 600; color: #223D2C; white-space: nowrap;">{{ c.price }}</span>
+              </sc-if>
+            </div>
+            <p style="font-size: 13.5px; color: #857E72; margin: 8px 0 0; font-weight: 300; line-height: 1.55; flex: 1;">{{ c.desc }}</p>
+            <sc-if value="{{ c.isPizza }}" hint-placeholder-val="{{ true }}">
+              <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
+                <sc-for list="{{ c.sizes }}" as="s" hint-placeholder-count="3">
+                  <div style="flex: 1; min-width: 68px; text-align: center; background: #EFEAE1; border: 1px solid rgba(38,36,31,0.1); border-radius: 6px; padding: 8px 6px;">
+                    <div style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #948C7E;">{{ s.size }}</div>
+                    <div style="font-size: 15px; font-weight: 600; color: #223D2C; margin-top: 2px;">{{ s.price }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="text-align: center; margin-top: 56px;">
+      <a href="tel:+381617300202" style="display: inline-flex; align-items: center; gap: 10px; background: #223D2C; color: #F3EFE7; padding: 16px 32px; border-radius: 7px; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500;" style-hover="background: #2E5139;"><span style="font-size: 17px;">☎</span> Naruči telefonom · 061 730 0202</a>
+    </div>
+  </section>
+
+  <footer style="background: #1B3122; color: rgba(237,231,218,0.62); padding: 34px clamp(20px, 5vw, 40px); text-align: center; font-size: 13px; letter-spacing: 0.5px;">
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #EDE7DA; margin: 0 0 8px; font-weight: 600;">Happiness<span style="color: #B4402F;">.</span> Caffe Bar</p>
+    <p style="margin: 0; font-weight: 300;">Cara Dušana 19, Trstenik · 061 730 0202 · Rad. 07:30–00:00, Vikend 07:30–01:00</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { tab: 'pizza' };
+
+  data() {
+    const din = (n) => n == null ? '–' : n.toLocaleString('sr-RS');
+    return {
+      din,
+      pizza: [
+        { name: 'Capricciosa', desc: 'šunka, pelat, pečurke, kačkavalj, masline', s: [350, 800, 1250] },
+        { name: 'Primavera', desc: 'pečenica, pelat, pečurke, kačkavalj, masline', s: [380, 850, 1350] },
+        { name: 'Pepperoni', desc: 'kulen, pelat, pečurke, kačkavalj, masline', s: [490, 950, 1490] },
+        { name: 'Vungini', desc: 'suvi vrat, pelat, pečurke, kačkavalj, masline', s: [430, 980, 1570] },
+        { name: 'Happy pizza', desc: 'mortadela, pesto sos, masline, neutralna pavlaka, kačkavalj, pečurke', s: [500, 1050, 1600] },
+        { name: 'Rustik', desc: 'dimljena kobasica, pelat, masline, pečurke, dimljeni kačkavalj', s: [520, 1030, 1530] },
+        { name: 'Carbonara', desc: 'slaninica, neutralna pavlaka, beli luk, pečurke, parmezan, kačkavalj', s: [470, 960, 1520] },
+        { name: 'Pizza pršuta', desc: 'pršuta, pelat, pečurke, kačkavalj, dimljeni kačkavalj, rukola, masline', s: [520, 1030, 1570] },
+        { name: 'Vegeteriana', desc: 'paprika, luk, paradajz, tikvica, pečurke, masline, kačkavalj, pelat', s: [440, 880, 1370] },
+        { name: 'Margarita', desc: 'pelat, kačkavalj', s: [330, 750, 1150] },
+        { name: 'Vegetariana posna', desc: 'paprika, luk, paradajz, tikvica, pečurke, masline, posni kačkavalj', s: [330, 750, 1150] },
+        { name: 'Posna na vodi', desc: 'paprika, luk, tikvica, paradajz, pečurke, rukola', s: [300, null, null] },
+      ],
+      specijal: [
+        { name: 'Pizza diavolo', desc: 'šunka, kulen, pelat, pečurke, kačkavalj', s: [510, 1030, 1570] },
+        { name: 'Pizza tunjevina', desc: 'tunjevina, pelat, luk, tikvica, paprika, biljni kačkavalj', s: [490, 970, 1520] },
+        { name: 'Pizza quattro stagioni', desc: 'šunka, kulen, pršuta, jaje, kačkavalj, pelat, pečurke', s: [520, 1000, 1620] },
+      ],
+      sendvici: [
+        { name: 'Sendvič šunka', desc: '50g šunke, 50g kačkavalja, 30g kajmaka, paradajz, krastavac, iceberg', p: 350 },
+        { name: 'Sendvič suvi vrat', desc: '50g suvog vrata, 50g kačkavalja, 30g kajmaka, paradajz, krastavac, iceberg', p: 400 },
+        { name: 'Sendvič pečenica', desc: '50g pečenice, 50g kačkavalja, 30g kajmaka, paradajz, krastavac, iceberg', p: 400 },
+        { name: 'Sendvič kulen', desc: '70g kulena, 50g kačkavalja, 30g kajmaka, paradajz, krastavac, iceberg', p: 400 },
+        { name: 'Sendvič pršuta', desc: '70g pršute, 50g kačkavalja, 30g kajmaka, paradajz, krastavac, iceberg', p: 500 },
+        { name: 'Posni sendvič', desc: '160g tunjevine, 50g biljnog kačkavalja, luk, paradajz, krastavac, rukola', p: 410 },
+        { name: 'Happy sendvič', desc: '100g mortadele sa pistaćima, 100g dimljenog kačkavalja, kajmak, pesto sos', p: 500 },
+      ],
+      omleti: [
+        { name: 'Omlet sa sirom', desc: 'klasičan omlet sa domaćim sirom', p: 330 },
+        { name: 'Omlet sa šunkom', desc: 'omlet sa šunkom', p: 400 },
+        { name: 'Omlet sa slaninom', desc: 'omlet sa hrskavom slaninom', p: 420 },
+        { name: 'Omlet pečurke', desc: 'omlet sa svežim pečurkama', p: 380 },
+        { name: 'Omlet suvi vrat', desc: 'omlet sa suvim vratom', p: 420 },
+        { name: 'Omlet pečenica', desc: 'omlet sa pečenicom', p: 410 },
+        { name: 'Omlet povrće', desc: 'omlet sa sezonskim povrćem', p: 410 },
+        { name: 'Jaja na oko sa slaninom', desc: 'jaja na oko uz slaninu', p: 400 },
+        { name: 'Jaje na oko sa kobasicom', desc: 'jaje na oko uz kobasicu', p: 400 },
+        { name: 'Happiness prženice', desc: 'prženice sa pršutom', p: 550 },
+        { name: 'Prženice punjene', desc: 'punjene šunkom, suvim vratom i pečenicom', p: 450 },
+        { name: 'Happiness doručak', desc: 'bogat doručak po kući', p: 450 },
+        { name: 'Prolećni doručak', desc: 'lagan doručak sa povrćem', p: 430 },
+      ],
+      tortilje: [
+        { name: 'Taquitosi', desc: 'hrskave tortilja rolnice', p: 500 },
+        { name: 'Quesadilla', desc: 'tortilja punjena sirom i piletinom', p: 500 },
+        { name: 'Burrito', desc: 'punjeni burrito', p: 500 },
+        { name: 'Crunch & Fresh', desc: 'hrskava piletina uz sveže povrće', p: 730 },
+        { name: 'Scalapine quattro formaggi', desc: 'piletina sa četiri vrste sira', p: 830 },
+        { name: 'Wrap', desc: 'wrap sa piletinom i povrćem', p: 500 },
+        { name: 'Mediteranska piletina', desc: 'piletina u mediteranskom stilu', p: 650 },
+        { name: 'Cremoso piletina', desc: 'piletina u kremastom sosu', p: 650 },
+        { name: 'Sticki fingers', desc: 'pohovani pileći štapići', p: 500 },
+        { name: 'Chicken nuggets', desc: 'pileći nagetsi', p: 500 },
+      ],
+      burgeri: [
+        { name: 'Classic Happiness', desc: 'naš klasični burger', p: 580 },
+        { name: 'Hedonist', desc: 'burger za prave sladokusce', p: 650 },
+        { name: 'Mushroom Magic', desc: 'burger sa pečurkama', p: 650 },
+        { name: 'Red Fury', desc: 'pikantni burger', p: 630 },
+        { name: 'Happy Little Burger', desc: 'manji burger, veliki ukus', p: 700 },
+        { name: 'Double Happiness Burger', desc: 'dupla porcija za najveću glad', p: 1100 },
+      ],
+      slane: [
+        { name: 'Šunka', desc: 'šunka 60g, kačkavalj 100g, pavlaka 100g', p: 350 },
+        { name: 'Pečenica', desc: 'pečenica 60g, kačkavalj 100g, pavlaka 100g', p: 390 },
+        { name: 'Suvi vrat', desc: 'suvi vrat 60g, kačkavalj 100g, pavlaka 100g', p: 390 },
+        { name: 'Kulen', desc: 'kulen 80g, kačkavalj 100g, pavlaka 100g', p: 430 },
+        { name: 'Pršuta', desc: 'pršuta 80g, kačkavalj 100g, pavlaka 100g', p: 500 },
+      ],
+      slatke: [
+        { name: 'Krem', desc: 'krem 100g', p: 300 },
+        { name: 'Krem plazma', desc: 'krem 100g, plazma 50g', p: 350 },
+        { name: 'Nutela', desc: 'nutela 100g', p: 330 },
+        { name: 'Nutela plazma', desc: 'nutela 100g, plazma 50g', p: 380 },
+        { name: 'Džem', desc: 'džem 100g', p: 300 },
+        { name: 'Trio fantazija', desc: 'krem 100g, plazma 50g, višnja 100g, pavlaka 100g', p: 400 },
+      ],
+    };
+  }
+
+  renderVals() {
+    const d = this.data();
+    const active = this.state.tab;
+    const cats = [
+      { id: 'pizza', label: 'Pizza', hint: 'veličine 25 / 33 / 42 cm' },
+      { id: 'specijal', label: 'Pizza specijal', hint: 'veličine 25 / 33 / 42 cm' },
+      { id: 'sendvici', label: 'Sendviči', hint: 'sveže i zasitno' },
+      { id: 'omleti', label: 'Jaja i omleti', hint: 'doručak ceo dan' },
+      { id: 'tortilje', label: 'Piletina & tortilje', hint: 'piletina, burito, wrap' },
+      { id: 'burgeri', label: 'Burgeri', hint: 'sočno i veliko' },
+      { id: 'slane', label: 'Palačinke slane', hint: 'domaće palačinke' },
+      { id: 'slatke', label: 'Palačinke slatke', hint: 'za kraj — slatko' },
+    ];
+    const tabBase = "font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 7px; padding: 9px 18px; font-size: 12.5px; letter-spacing: 0.6px; text-transform: uppercase; font-weight: 500; transition: all .18s ease; ";
+    const tabs = cats.map(c => ({
+      label: c.label,
+      onClick: () => this.setState({ tab: c.id }),
+      style: tabBase + (c.id === active
+        ? 'background: #223D2C; color: #F3EFE7; border: 1px solid #223D2C;'
+        : 'background: transparent; color: #4A453D; border: 1px solid rgba(38,36,31,0.22);'),
+    }));
+
+    const catMeta = cats.find(c => c.id === active) || cats[0];
+    const isPizza = active === 'pizza' || active === 'specijal';
+    const src = d[active] || [];
+
+    const cardBase = 'display: flex; flex-direction: column; background: #F5F1E9; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 26px rgba(38,36,31,0.07); ';
+    const catImg = {
+      pizza: 'close-up-delicious-pizza.jpg',
+      specijal: 'foodiesfeed.com_pizza-in-a-paper-box.jpg',
+      sendvici: 'black-beer-mug-with-fried-chicken-table.jpg',
+      omleti: 'foodiesfeed.com_hearty-breakfast-plate-with-eggs-sausages-and-bean.jpg',
+      tortilje: 'close-up-large-tube-pasta-with-chicken-cherry-tomato-with-chopped-parsley.jpg',
+      burgeri: 'closeup-hamburgers-wooden-tray-with-blurred-background.jpg',
+      slane: 'closeup-belgian-waffles-with-fruits-covered-with-chocolate.jpg',
+      slatke: 'closeup-belgian-waffles-with-fruits-covered-with-chocolate.jpg',
+    };
+    const imgStyle = `background-image: url('img/${catImg[active] || catImg.pizza}'); background-size: cover; background-position: center; height: 190px; `;
+
+    const cards = src.map((item, i) => {
+      const base = {
+        name: item.name,
+        desc: item.desc || '',
+        photo: '',
+        cardStyle: cardBase + `animation: hpFade .5s ease ${(i % 8) * 55}ms both;`,
+        imgStyle,
+        isPizza,
+        single: !isPizza,
+      };
+      if (isPizza) {
+        return { ...base, sizes: [
+          { size: '25cm', price: d.din(item.s[0]) },
+          { size: '33cm', price: d.din(item.s[1]) },
+          { size: '42cm', price: d.din(item.s[2]) },
+        ], price: '' };
+      }
+      return { ...base, price: d.din(item.p), sizes: [] };
+    });
+
+    return {
+      tabs,
+      cards,
+      activeLabel: catMeta.label,
+      activeHint: catMeta.hint,
+    };
+  }
+}
+</script>
+</body>
+</html>
