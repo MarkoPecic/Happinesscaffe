@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Meni — Happiness Caffe Bar</title>
-<meta name="description" content="Ceo meni sa cenama: pice, burgeri, sendviči, palačinke, doručak i tortilje. Porudžbine: 061 730 0202.">
+<meta name="description" content="Ceo meni sa slikama i cenama: pice, burgeri, sendviči, palačinke, doručak i tortilje. Porudžbine: 061 730 0202.">
 <meta property="og:title" content="Meni — Happiness Caffe Bar">
-<meta property="og:description" content="Ceo meni sa cenama: pice, burgeri, sendviči, palačinke, doručak i tortilje. Porudžbine: 061 730 0202.">
+<meta property="og:description" content="Ceo meni sa slikama i cenama: pice, burgeri, sendviči, palačinke, doručak i tortilje. Porudžbine: 061 730 0202.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:,">
 <script src="./support.js"></script>
@@ -24,15 +24,28 @@
   a { color: #223D2C; text-decoration: none; }
   a:hover { color: #2E5139; }
   @keyframes hpFade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  [data-burger] { display: none; }
+  @media (max-width: 900px) {
+    [data-navmid], [data-navhours] { display: none !important; }
+    [data-burger] { display: grid !important; }
+    [data-navbar] { grid-template-columns: 1fr auto !important; }
+    [data-features] { grid-template-columns: 1fr !important; }
+    [data-cards] { grid-template-columns: repeat(2, 1fr) !important; }
+    [data-menuhead] { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+    [data-menuhead] p { text-align: left !important; }
+  }
+  @media (max-width: 560px) {
+    [data-cards] { grid-template-columns: 1fr !important; }
+  }
 </style>
 </helmet>
 
 <div style="font-family: 'Jost', sans-serif; color: #26241F; background: #EEE9E0; overflow-x: hidden; min-height: 100vh;">
 
   <nav style="position: sticky; top: 0; z-index: 50; padding: 0 clamp(16px, 3vw, 32px); background: rgba(238,233,224,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(38,36,31,0.10);">
-    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; height: 62px;">
+    <div data-navbar style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; height: 62px;">
       <a href="index.html" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.3px; color: #26241F; justify-self: start;">Happiness<span style="color: #B4402F;">.</span></a>
-      <div style="display: flex; align-items: center; gap: clamp(10px, 1.4vw, 20px); font-size: 11.5px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 500; justify-self: center;">
+      <div data-navmid style="display: flex; align-items: center; gap: clamp(10px, 1.4vw, 20px); font-size: 11.5px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 500; justify-self: center;">
         <a href="index.html" style="color: #4A453D; padding: 6px 2px;" style-hover="color: #B4402F;">← Početna</a>
         <span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(38,36,31,0.28);"></span>
         <a href="index.html#o-nama" style="color: #4A453D; padding: 6px 2px;" style-hover="color: #B4402F;">O nama</a>
@@ -42,54 +55,106 @@
         <a href="index.html#kontakt" style="color: #4A453D; padding: 6px 2px;" style-hover="color: #B4402F;">Kontakt</a>
       </div>
       <div style="display: flex; align-items: center; gap: 14px; justify-self: end;">
-        <span style="font-size: 11px; letter-spacing: 1px; color: #857E72; text-transform: uppercase; white-space: nowrap;">07:30 — 00:00</span>
+        <span data-navhours style="font-size: 11px; letter-spacing: 1px; color: #857E72; text-transform: uppercase; white-space: nowrap;">07:30 — 00:00</span>
         <a href="tel:+381617300202" style="display: inline-flex; align-items: center; gap: 6px; background: #223D2C; color: #F3EFE7; padding: 7px 14px; border-radius: 6px; font-size: 11.5px; letter-spacing: 1.1px; font-weight: 600; white-space: nowrap;" style-hover="background: #2E5139;">☎ 061 730 0202</a>
+        <button data-burger aria-label="Meni" onClick="{{ toggleMenu }}" style="width: 40px; height: 40px; place-items: center; gap: 5px; background: transparent; border: 1px solid rgba(38,36,31,0.25); border-radius: 6px; cursor: pointer; padding: 0;">
+          <span style="display: block; width: 17px; height: 1.5px; background: #26241F;"></span>
+          <span style="display: block; width: 17px; height: 1.5px; background: #26241F;"></span>
+        </button>
       </div>
+    </div>
+    <div style="{{ mobileMenuStyle }}">
+      <a href="index.html" style="color: #26241F; font-size: 15px; letter-spacing: 1.6px; text-transform: uppercase; padding: 13px 0; border-bottom: 1px solid rgba(38,36,31,0.08);">← Početna</a>
+      <a href="index.html#o-nama" style="color: #26241F; font-size: 15px; letter-spacing: 1.6px; text-transform: uppercase; padding: 13px 0; border-bottom: 1px solid rgba(38,36,31,0.08);">O nama</a>
+      <a href="index.html#galerija" style="color: #26241F; font-size: 15px; letter-spacing: 1.6px; text-transform: uppercase; padding: 13px 0; border-bottom: 1px solid rgba(38,36,31,0.08);">Galerija</a>
+      <a href="index.html#kontakt" style="color: #26241F; font-size: 15px; letter-spacing: 1.6px; text-transform: uppercase; padding: 13px 0;">Kontakt</a>
+      <span style="font-size: 12px; letter-spacing: 1px; color: #857E72; text-transform: uppercase; padding-top: 6px;">Rad. 07:30–00:00 · Vikend 07:30–01:00</span>
     </div>
   </nav>
 
-  <!-- HEADER BAND -->
-  <header style="position: relative; overflow: hidden; padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 40px); text-align: center;">
-    <div style="position: absolute; inset: 0; background-image: url('img/close-up-large-tube-pasta-with-chicken-cherry-tomato-with-chopped-parsley.jpg'); background-size: cover; background-position: center;"></div>
-    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,18,14,0.74), rgba(20,18,14,0.84));"></div>
-    <div style="position: relative; z-index: 2; animation: hpFade 0.7s ease both;">
-      <p style="font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #F0C9A8; margin: 0 0 14px; font-weight: 500;">Happiness bistro</p>
-      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(46px, 8vw, 92px); font-weight: 600; margin: 0; color: #FBF8F2; letter-spacing: -0.5px; line-height: 1;">Naš meni</h1>
-      <p style="font-size: 15px; color: rgba(251,248,242,0.82); margin: 18px auto 0; font-weight: 300; max-width: 520px; line-height: 1.6;">Sve cene su u dinarima (RSD). Za porudžbinu jednostavno pozovite <a href="tel:+381617300202" style="color: #F0C9A8; font-weight: 500;">061 730 0202</a>.</p>
+  <!-- HEADER -->
+  <header style="position: relative; overflow: hidden; padding: clamp(70px, 11vw, 130px) clamp(20px, 5vw, 48px) clamp(74px, 11vw, 132px); text-align: center;">
+    <div style="position: absolute; inset: 0; background-image: url('img/close-up-delicious-pizza.jpg'); background-size: cover; background-position: center 60%;"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,16,12,0.82) 0%, rgba(18,16,12,0.62) 45%, rgba(18,16,12,0.88) 100%);"></div>
+    <div style="position: relative; z-index: 2; max-width: 720px; margin: 0 auto; animation: hpFade 0.8s ease both;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 24px;">
+        <span style="width: clamp(26px, 6vw, 58px); height: 1px; background: rgba(240,201,168,0.5);"></span>
+        <span style="font-size: clamp(10px, 2.2vw, 11px); letter-spacing: 3.4px; text-transform: uppercase; color: #F0C9A8; font-weight: 500; white-space: nowrap;">Happiness bistro · Trstenik</span>
+        <span style="width: clamp(26px, 6vw, 58px); height: 1px; background: rgba(240,201,168,0.5);"></span>
+      </div>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 10vw, 104px); font-weight: 600; margin: 0; color: #FBF8F2; line-height: 0.92; letter-spacing: -1.5px;">Jelovnik</h1>
+      <div style="width: 54px; height: 1px; background: rgba(240,201,168,0.55); margin: 26px auto 0;"></div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(17px, 2.6vw, 22px); color: rgba(251,248,242,0.88); margin: 24px auto 0; line-height: 1.55; max-width: 480px; text-wrap: pretty; font-weight: 400;">Kuhinja radi ceo dan — od jutarnjeg omleta do večernje pice.</p>
+      <div style="display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; font-size: 11.5px; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(251,248,242,0.6);">
+        <span>Porudžbine</span>
+        <span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(251,248,242,0.4);"></span>
+        <a href="tel:+381617300202" style="color: #F0C9A8; font-weight: 600; letter-spacing: 1.3px;" style-hover="color: #FBF8F2;">061 730 0202</a>
+      </div>
     </div>
   </header>
 
-  <!-- STICKY TABS -->
-  <div style="position: sticky; top: 62px; z-index: 40; background: rgba(238,233,224,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(38,36,31,0.10); padding: 14px clamp(16px, 5vw, 40px);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+  <div style="position: sticky; top: 62px; z-index: 40; background: rgba(238,233,224,0.96); backdrop-filter: blur(10px); border-top: 1px solid rgba(38,36,31,0.09); border-bottom: 1px solid rgba(38,36,31,0.09); padding: 13px clamp(20px, 5vw, 48px);">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
       <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
         <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
       </sc-for>
     </div>
   </div>
 
-  <!-- CARDS -->
-  <section style="max-width: 1240px; margin: 0 auto; padding: clamp(36px, 5vw, 56px) clamp(20px, 5vw, 40px) clamp(56px, 8vw, 90px);">
-    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 600; text-align: center; margin: 0 0 8px; letter-spacing: -0.5px;">{{ activeLabel }}</h2>
-    <p style="text-align: center; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B4402F; margin: 0 0 40px;">{{ activeHint }}</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 26px;">
-      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="9">
-        <div style="{{ c.cardStyle }}">
-          <div style="{{ c.imgStyle }}"></div>
-          <div style="padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1;">
-            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
-              <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; margin: 0; color: #26241F; line-height: 1.15;">{{ c.name }}</h3>
-              <sc-if value="{{ c.single }}" hint-placeholder-val="{{ true }}">
-                <span style="font-size: 18px; font-weight: 600; color: #223D2C; white-space: nowrap;">{{ c.price }}</span>
-              </sc-if>
+  <!-- CONTENT -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: clamp(36px, 5vw, 52px) clamp(20px, 5vw, 48px) clamp(56px, 8vw, 88px);">
+
+    <sc-if value="{{ hasFeatures }}" hint-placeholder-val="{{ true }}">
+      <div style="margin-bottom: clamp(38px, 5vw, 52px);">
+        <div style="display: flex; align-items: center; gap: 13px; margin: 0 0 20px;">
+          <span style="font-size: 10.5px; letter-spacing: 2.6px; text-transform: uppercase; color: #B4402F; font-weight: 600; white-space: nowrap;">Izdvajamo iz kuhinje</span>
+          <span style="flex: 1; height: 1px; background: linear-gradient(90deg, rgba(180,64,47,0.3) 0%, rgba(38,36,31,0) 100%);"></span>
+        </div>
+        <div data-features style="display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px;">
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="2">
+            <div style="{{ f.wrapStyle }}">
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,16,12,0.05) 35%, rgba(18,16,12,0.88) 100%);"></div>
+              <div style="position: relative; padding: 24px 26px; display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; height: 100%;">
+                <div>
+                  <h3 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3.4vw, 30px); font-weight: 600; margin: 0 0 6px; color: #FBF8F2; line-height: 1.1;">{{ f.name }}</h3>
+                  <p style="font-size: 13px; color: rgba(251,248,242,0.75); margin: 0; font-weight: 300; line-height: 1.5; max-width: 300px;">{{ f.desc }}</p>
+                </div>
+                <span style="background: #F3EFE7; color: #223D2C; font-size: 15px; font-weight: 600; padding: 8px 14px; border-radius: 6px; white-space: nowrap;">{{ f.price }}</span>
+              </div>
             </div>
-            <p style="font-size: 13.5px; color: #857E72; margin: 8px 0 0; font-weight: 300; line-height: 1.55; flex: 1;">{{ c.desc }}</p>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+        <span style="flex: 1; max-width: 180px; height: 1px; background: linear-gradient(90deg, rgba(38,36,31,0) 0%, rgba(38,36,31,0.22) 100%);"></span>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4.6vw, 42px); font-weight: 600; margin: 0; color: #26241F; white-space: nowrap; letter-spacing: -0.3px;">{{ activeLabel }}</h2>
+        <span style="flex: 1; max-width: 180px; height: 1px; background: linear-gradient(90deg, rgba(38,36,31,0.22) 0%, rgba(38,36,31,0) 100%);"></span>
+      </div>
+      <p style="font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase; color: #B4402F; margin: 12px 0 0; font-weight: 600;">{{ activeHint }}</p>
+    </div>
+
+    <div data-cards style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="9">
+        <div style="{{ c.cardStyle }}" style-hover="transform: translateY(-5px); box-shadow: 0 22px 46px rgba(38,36,31,0.16);">
+          <div style="position: relative; overflow: hidden;">
+            <div style="{{ c.imgStyle }}"></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,16,12,0) 55%, rgba(18,16,12,0.5) 100%);"></div>
+            <sc-if value="{{ c.single }}" hint-placeholder-val="{{ true }}">
+              <span style="position: absolute; right: 12px; bottom: 12px; background: rgba(251,248,242,0.95); color: #223D2C; font-size: 14.5px; font-weight: 700; padding: 6px 12px; border-radius: 5px; letter-spacing: 0.2px; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">{{ c.price }}</span>
+            </sc-if>
+          </div>
+          <div style="padding: 18px 20px 21px; display: flex; flex-direction: column; flex: 1; border-top: 2px solid #223D2C;">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin: 0; color: #26241F; line-height: 1.15;">{{ c.name }}</h3>
+            <p style="font-size: 12.5px; color: #857E72; margin: 8px 0 0; font-weight: 300; line-height: 1.55; flex: 1;">{{ c.desc }}</p>
             <sc-if value="{{ c.isPizza }}" hint-placeholder-val="{{ true }}">
-              <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
+              <div style="display: flex; gap: 6px; margin-top: 15px;">
                 <sc-for list="{{ c.sizes }}" as="s" hint-placeholder-count="3">
-                  <div style="flex: 1; min-width: 68px; text-align: center; background: #EFEAE1; border: 1px solid rgba(38,36,31,0.1); border-radius: 6px; padding: 8px 6px;">
-                    <div style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #948C7E;">{{ s.size }}</div>
-                    <div style="font-size: 15px; font-weight: 600; color: #223D2C; margin-top: 2px;">{{ s.price }}</div>
+                  <div style="flex: 1; text-align: center; background: #EAE4D9; border: 1px solid rgba(38,36,31,0.07); border-radius: 5px; padding: 7px 3px;">
+                    <div style="font-size: 9.5px; letter-spacing: 0.9px; text-transform: uppercase; color: #948C7E;">{{ s.size }}</div>
+                    <div style="font-size: 14.5px; font-weight: 700; color: #223D2C; margin-top: 2px;">{{ s.price }}</div>
                   </div>
                 </sc-for>
               </div>
@@ -99,8 +164,8 @@
       </sc-for>
     </div>
 
-    <div style="text-align: center; margin-top: 56px;">
-      <a href="tel:+381617300202" style="display: inline-flex; align-items: center; gap: 10px; background: #223D2C; color: #F3EFE7; padding: 16px 32px; border-radius: 7px; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500;" style-hover="background: #2E5139;"><span style="font-size: 17px;">☎</span> Naruči telefonom · 061 730 0202</a>
+    <div style="text-align: center; margin-top: 52px;">
+      <a href="tel:+381617300202" style="display: inline-flex; align-items: center; gap: 10px; background: #223D2C; color: #F3EFE7; padding: 14px 30px; border-radius: 7px; font-size: 13.5px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600;" style-hover="background: #2E5139;"><span style="font-size: 16px;">☎</span> Naruči telefonom · 061 730 0202</a>
     </div>
   </section>
 
@@ -113,12 +178,10 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900}}">
 class Component extends DCLogic {
-  state = { tab: 'pizza' };
+  state = { tab: 'pizza', menuOpen: false };
 
   data() {
-    const din = (n) => n == null ? '–' : n.toLocaleString('sr-RS');
     return {
-      din,
       pizza: [
         { name: 'Capricciosa', desc: 'šunka, pelat, pečurke, kačkavalj, masline', s: [350, 800, 1250] },
         { name: 'Primavera', desc: 'pečenica, pelat, pečurke, kačkavalj, masline', s: [380, 850, 1350] },
@@ -148,37 +211,37 @@ class Component extends DCLogic {
         { name: 'Happy sendvič', desc: '100g mortadele sa pistaćima, 100g dimljenog kačkavalja, kajmak, pesto sos', p: 500 },
       ],
       omleti: [
-        { name: 'Omlet sa sirom', desc: 'klasičan omlet sa domaćim sirom', p: 330 },
-        { name: 'Omlet sa šunkom', desc: 'omlet sa šunkom', p: 400 },
-        { name: 'Omlet sa slaninom', desc: 'omlet sa hrskavom slaninom', p: 420 },
-        { name: 'Omlet pečurke', desc: 'omlet sa svežim pečurkama', p: 380 },
-        { name: 'Omlet suvi vrat', desc: 'omlet sa suvim vratom', p: 420 },
-        { name: 'Omlet pečenica', desc: 'omlet sa pečenicom', p: 410 },
-        { name: 'Omlet povrće', desc: 'omlet sa sezonskim povrćem', p: 410 },
-        { name: 'Jaja na oko sa slaninom', desc: 'jaja na oko uz slaninu', p: 400 },
-        { name: 'Jaje na oko sa kobasicom', desc: 'jaje na oko uz kobasicu', p: 400 },
+        { name: 'Omlet sa sirom', desc: 'jaja i domaći sir', p: 330 },
+        { name: 'Omlet sa šunkom', desc: 'jaja i šunka', p: 400 },
+        { name: 'Omlet sa slaninom', desc: 'jaja i hrskava slanina', p: 420 },
+        { name: 'Omlet pečurke', desc: 'jaja i sveže pečurke', p: 380 },
+        { name: 'Omlet suvi vrat', desc: 'jaja i suvi vrat', p: 420 },
+        { name: 'Omlet pečenica', desc: 'jaja i pečenica', p: 410 },
+        { name: 'Omlet povrće', desc: 'jaja i sezonsko povrće', p: 410 },
+        { name: 'Jaja na oko sa slaninom', desc: 'dva jaja na oko uz slaninu', p: 400 },
+        { name: 'Jaje na oko sa kobasicom', desc: 'jaje na oko uz domaću kobasicu', p: 400 },
         { name: 'Happiness prženice', desc: 'prženice sa pršutom', p: 550 },
         { name: 'Prženice punjene', desc: 'punjene šunkom, suvim vratom i pečenicom', p: 450 },
-        { name: 'Happiness doručak', desc: 'bogat doručak po kući', p: 450 },
-        { name: 'Prolećni doručak', desc: 'lagan doručak sa povrćem', p: 430 },
+        { name: 'Happiness doručak', desc: 'bogat doručak po izboru kuće', p: 450 },
+        { name: 'Prolećni doručak', desc: 'lagan doručak sa svežim povrćem', p: 430 },
       ],
       tortilje: [
-        { name: 'Taquitosi', desc: 'hrskave tortilja rolnice', p: 500 },
+        { name: 'Taquitosi', desc: 'hrskave tortilja rolnice sa piletinom', p: 500 },
         { name: 'Quesadilla', desc: 'tortilja punjena sirom i piletinom', p: 500 },
-        { name: 'Burrito', desc: 'punjeni burrito', p: 500 },
+        { name: 'Burrito', desc: 'punjeni burrito sa piletinom i povrćem', p: 500 },
         { name: 'Crunch & Fresh', desc: 'hrskava piletina uz sveže povrće', p: 730 },
         { name: 'Scalapine quattro formaggi', desc: 'piletina sa četiri vrste sira', p: 830 },
         { name: 'Wrap', desc: 'wrap sa piletinom i povrćem', p: 500 },
         { name: 'Mediteranska piletina', desc: 'piletina u mediteranskom stilu', p: 650 },
         { name: 'Cremoso piletina', desc: 'piletina u kremastom sosu', p: 650 },
         { name: 'Sticki fingers', desc: 'pohovani pileći štapići', p: 500 },
-        { name: 'Chicken nuggets', desc: 'pileći nagetsi', p: 500 },
+        { name: 'Chicken nuggets', desc: 'pileći nagetsi uz sos', p: 500 },
       ],
       burgeri: [
-        { name: 'Classic Happiness', desc: 'naš klasični burger', p: 580 },
+        { name: 'Classic Happiness', desc: 'naš klasični burger sa junećom pljeskavicom', p: 580 },
         { name: 'Hedonist', desc: 'burger za prave sladokusce', p: 650 },
-        { name: 'Mushroom Magic', desc: 'burger sa pečurkama', p: 650 },
-        { name: 'Red Fury', desc: 'pikantni burger', p: 630 },
+        { name: 'Mushroom Magic', desc: 'burger sa pečurkama i sirom', p: 650 },
+        { name: 'Red Fury', desc: 'pikantni burger za ljubitelje ljutog', p: 630 },
         { name: 'Happy Little Burger', desc: 'manji burger, veliki ukus', p: 700 },
         { name: 'Double Happiness Burger', desc: 'dupla porcija za najveću glad', p: 1100 },
       ],
@@ -201,6 +264,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
+    const din = (n) => n == null ? '–' : n.toLocaleString('sr-RS');
     const d = this.data();
     const active = this.state.tab;
     const cats = [
@@ -210,58 +274,76 @@ class Component extends DCLogic {
       { id: 'omleti', label: 'Jaja i omleti', hint: 'doručak ceo dan' },
       { id: 'tortilje', label: 'Piletina & tortilje', hint: 'piletina, burito, wrap' },
       { id: 'burgeri', label: 'Burgeri', hint: 'sočno i veliko' },
-      { id: 'slane', label: 'Palačinke slane', hint: 'domaće palačinke' },
+      { id: 'slane', label: 'Palačinke slane', hint: 'domaće testo' },
       { id: 'slatke', label: 'Palačinke slatke', hint: 'za kraj — slatko' },
     ];
-    const tabBase = "font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 7px; padding: 9px 18px; font-size: 12.5px; letter-spacing: 0.6px; text-transform: uppercase; font-weight: 500; transition: all .18s ease; ";
+    const tabStyle = (on) => "font-family: 'Jost', sans-serif; cursor: pointer; font-size: 11.5px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 500; padding: 9px 16px; border-radius: 5px; transition: all .18s ease; " + (on
+      ? 'background: #223D2C; color: #F3EFE7; border: 1px solid #223D2C;'
+      : 'background: transparent; color: #4A453D; border: 1px solid rgba(38,36,31,0.2);');
     const tabs = cats.map(c => ({
       label: c.label,
       onClick: () => this.setState({ tab: c.id }),
-      style: tabBase + (c.id === active
-        ? 'background: #223D2C; color: #F3EFE7; border: 1px solid #223D2C;'
-        : 'background: transparent; color: #4A453D; border: 1px solid rgba(38,36,31,0.22);'),
+      style: tabStyle(c.id === active),
     }));
 
     const catMeta = cats.find(c => c.id === active) || cats[0];
     const isPizza = active === 'pizza' || active === 'specijal';
     const src = d[active] || [];
 
-    const cardBase = 'display: flex; flex-direction: column; background: #F5F1E9; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 26px rgba(38,36,31,0.07); ';
+    // each category only ever shows photos of ITS OWN food; variety comes from the crop
+    const crops = ['center', 'left 35%', 'right 30%', 'center 25%', 'center 75%'];
+    const zooms = ['cover', '135%', '115%', '150%'];
+    const img = (f, i) => `background-image: url('img/${f}'); background-size: ${zooms[i % zooms.length]}; background-position: ${crops[i % crops.length]};`;
     const catImg = {
-      pizza: 'close-up-delicious-pizza.jpg',
-      specijal: 'foodiesfeed.com_pizza-in-a-paper-box.jpg',
-      sendvici: 'black-beer-mug-with-fried-chicken-table.jpg',
-      omleti: 'foodiesfeed.com_hearty-breakfast-plate-with-eggs-sausages-and-bean.jpg',
-      tortilje: 'close-up-large-tube-pasta-with-chicken-cherry-tomato-with-chopped-parsley.jpg',
-      burgeri: 'closeup-hamburgers-wooden-tray-with-blurred-background.jpg',
-      slane: 'closeup-belgian-waffles-with-fruits-covered-with-chocolate.jpg',
-      slatke: 'closeup-belgian-waffles-with-fruits-covered-with-chocolate.jpg',
+      pizza: ['close-up-delicious-pizza.jpg', 'foodiesfeed.com_pizza-in-a-paper-box.jpg'],
+      specijal: ['foodiesfeed.com_pizza-in-a-paper-box.jpg', 'close-up-delicious-pizza.jpg'],
+      sendvici: ['black-beer-mug-with-fried-chicken-table.jpg'],
+      omleti: ['foodiesfeed.com_hearty-breakfast-plate-with-eggs-sausages-and-bean.jpg'],
+      tortilje: ['close-up-large-tube-pasta-with-chicken-cherry-tomato-with-chopped-parsley.jpg'],
+      burgeri: ['closeup-hamburgers-wooden-tray-with-blurred-background.jpg'],
+      slane: ['closeup-belgian-waffles-with-fruits-covered-with-chocolate.jpg'],
+      slatke: ['closeup-belgian-waffles-with-fruits-covered-with-chocolate.jpg'],
     };
-    const imgStyle = `background-image: url('img/${catImg[active] || catImg.pizza}'); background-size: cover; background-position: center; height: 190px; `;
+    const pool = catImg[active] || catImg.pizza;
 
+    // two most expensive dishes become the featured pair
+    const priceOf = (it) => isPizza ? (it.s[2] ?? it.s[1] ?? it.s[0]) : it.p;
+    const featSrc = [...src].sort((a, b) => priceOf(b) - priceOf(a)).slice(0, 2);
+    const features = featSrc.map((f, i) => ({
+      name: f.name,
+      desc: f.desc || '',
+      price: din(priceOf(f)),
+      wrapStyle: `position: relative; height: 270px; border-radius: 8px; overflow: hidden; animation: hpFade .5s ease ${i * 70}ms both; ` + img(pool[i % pool.length], i * 2),
+    }));
+
+    const cardBase = 'display: flex; flex-direction: column; background: #F5F1E9; border-radius: 9px; overflow: hidden; box-shadow: 0 6px 20px rgba(38,36,31,0.08); transition: transform .28s ease, box-shadow .28s ease; ';
     const cards = src.map((item, i) => {
       const base = {
         name: item.name,
         desc: item.desc || '',
-        photo: '',
-        cardStyle: cardBase + `animation: hpFade .5s ease ${(i % 8) * 55}ms both;`,
-        imgStyle,
+        cardStyle: cardBase + `animation: hpFade .5s ease ${(i % 9) * 45}ms both;`,
+        imgStyle: img(pool[i % pool.length], i) + ' height: 150px;',
         isPizza,
         single: !isPizza,
       };
       if (isPizza) {
-        return { ...base, sizes: [
-          { size: '25cm', price: d.din(item.s[0]) },
-          { size: '33cm', price: d.din(item.s[1]) },
-          { size: '42cm', price: d.din(item.s[2]) },
-        ], price: '' };
+        return { ...base, price: '', sizes: [
+          { size: '25', price: din(item.s[0]) },
+          { size: '33', price: din(item.s[1]) },
+          { size: '42', price: din(item.s[2]) },
+        ] };
       }
-      return { ...base, price: d.din(item.p), sizes: [] };
+      return { ...base, price: din(item.p), sizes: [] };
     });
 
+    const open = this.state.menuOpen;
     return {
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      mobileMenuStyle: 'display: ' + (open ? 'flex' : 'none') + '; flex-direction: column; background: rgba(238,233,224,0.98); border-top: 1px solid rgba(38,36,31,0.1); padding: 8px clamp(16px, 5vw, 32px) 22px;',
       tabs,
       cards,
+      features,
+      hasFeatures: features.length === 2,
       activeLabel: catMeta.label,
       activeHint: catMeta.hint,
     };
